@@ -24,7 +24,7 @@ foreach ($part in $parts) {
         $text = $text.Insert(2583, "d")
     }
     if ($part.Name -eq "project.zip.b64.part04" -and $text.Length -eq 6927) {
-        $text += "kqXQ7qP6tQ4dMUV9/LGl9NG+09FBJRIdSowOpyODhZcpPmm+WvG5pTwNRYdHB6J96dGkkmRF"
+        $text += "8kqXQ7qP6tQ4dMUV9/LGl9NG+09FBJRIdSowOpyODhZcpPmm+WvG5pTwNRYdHB6J96dGkkmRF"
     }
 
     [void]$base64.Append($text)

@@ -7,12 +7,12 @@ $outDir = Join-Path -Path $root -ChildPath "project"
 $expectedBase64Length = 50444
 
 if (-not (Test-Path -LiteralPath $partsDir)) {
-    throw "Не найдена папка с частями архива: $partsDir"
+    throw "Archive parts folder was not found: $partsDir"
 }
 
 $parts = Get-ChildItem -LiteralPath $partsDir -Filter "project.zip.b64.part*" | Sort-Object Name
 if ($parts.Count -eq 0) {
-    throw "Не найдены части архива project.zip.b64.part*"
+    throw "Archive parts project.zip.b64.part* were not found."
 }
 
 $base64 = New-Object System.Text.StringBuilder
@@ -31,12 +31,12 @@ foreach ($part in $parts) {
 }
 
 if ($base64.Length -ne $expectedBase64Length) {
-    throw "Неверный размер Base64-архива: $($base64.Length), ожидалось $expectedBase64Length"
+    throw "Wrong Base64 archive size: $($base64.Length), expected $expectedBase64Length"
 }
 
 [System.IO.File]::WriteAllBytes($zipPath, [Convert]::FromBase64String($base64.ToString()))
 New-Item -ItemType Directory -Path $outDir -Force | Out-Null
 Expand-Archive -LiteralPath $zipPath -DestinationPath $outDir -Force
 
-Write-Host "Готово. Проект распакован в: $outDir"
-Write-Host "Для запуска открой: $outDir\run_app.bat"
+Write-Host "Done. Project restored to: $outDir"
+Write-Host "Run the app with: $outDir\run_app.bat"

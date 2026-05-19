@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.tmp
+*.log
+*.zip
+*.7z
+*.rar
+*.db-journal
+*.db-shm
+*.db-wal
+*.lnk
+.DS_Store
+_render_check/
+google_sheets_config.json
+secrets/
+
+# Local SQLite cache and safety backups. Data lives in Google Sheets.
+Подбор ингредиентов/ingredients.db
+Подбор ингредиентов/ingredients_backup_*.db

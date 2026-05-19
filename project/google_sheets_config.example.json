@@ -1,0 +1,5 @@
+{
+  "sync_enabled": false,
+  "spreadsheet_id": "PASTE_GOOGLE_SHEET_ID_HERE",
+  "credentials_path": "secrets/google_service_account.json"
+}
